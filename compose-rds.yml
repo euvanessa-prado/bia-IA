@@ -1,0 +1,17 @@
+services:
+  server:
+    build: .
+    container_name: bia
+    ports:
+      - 3001:8080
+    environment:
+      DB_USER: postgres
+      DB_PWD: KrWt6GBVX0EhMnDUM6F6
+      DB_HOST: bia-ia.c29gca8kizzb.us-east-1.rds.amazonaws.com
+      DB_PORT: 5432
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/versao"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
