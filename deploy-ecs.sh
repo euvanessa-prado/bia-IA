@@ -14,7 +14,7 @@ DEFAULT_REGION="us-east-1"
 DEFAULT_ECR_REPO="bia"
 DEFAULT_CLUSTER="bia-ia"
 DEFAULT_SERVICE="service-bia-ia"
-DEFAULT_TASK_FAMILY="task-def-bia-ia"
+DEFAULT_TASK_FAMILY="task-def-bia-ia-alb"
 
 # Cores para output
 RED='\033[0;31m'
@@ -189,7 +189,7 @@ create_task_definition() {
     fi
     
     log_success "Nova task definition criada: $task_family:$new_revision"
-    echo $new_revision
+    echo "$new_revision"
 }
 
 # Função para atualizar o serviço ECS
